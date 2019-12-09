@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  db:
+    container_name: postgres-django
+    image: postgres:11
+    volumes:
+      - ./.postgres:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DATABASE=django
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=django
+  web:
+    container_name: django
+    build: .
+    volumes:
+      - ../app:/code
+    tty: true
+    ports:
+      - 18000:8000
+    depends_on:
+      - db
