@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
+    'scraping.apps.ScrapingConfig',
 ]
 
 MIDDLEWARE = [

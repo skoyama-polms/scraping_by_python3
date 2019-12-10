@@ -9,5 +9,9 @@ ADD . /code/
 RUN apt-get update \
     && apt-get install -y lsof
 
+RUN pip install beautifulsoup4 \
+    && pip install urllib3 \
+    && pip install certifi
+
 RUN echo 'alias ll="ls -la --color=auto"' >> ~/.bashrc
 RUN echo 'alias runserver="python manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc
